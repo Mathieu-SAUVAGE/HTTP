@@ -1,9 +1,12 @@
 package com.kyss;
 
-import com.kyss.CodeFactory;
+
+import com.kyss.http.HTTPStatus;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static com.kyss.http.HTTPStatus.*;
 
 /**
  * @author Mathieu SAUVAGE

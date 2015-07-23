@@ -1,0 +1,22 @@
+{
+    "category": [
+        "COMICS",
+        "IZNEO COMICS"
+    ],
+    "timestamp_created": 1383753360,
+    "timeofday": "16:56",
+    "uuid": "cf5e32d127d32c3de163f2d858ac3915",
+    "language": "en",
+    "title": "XIII",
+    "media_size": 52793270,
+    "covers": {
+        "532": "https://s3-eu-west-1.amazonaws.com/af1-media-preprod.adaptive-channel.com/covers/532/b5f1ff4aad9ab0058f5f05d22665f5c56a5b86e8.jpg"
+    },
+    "filename": "XIII_9781849189286.pdf",
+    "edition": "9781849189286",
+    "item_type": "PressePdf",
+    "year": 2013,
+    "is_public": false,
+    "month": "Nov",
+    "dayofmonth": "6"
+}

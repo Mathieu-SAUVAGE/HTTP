@@ -8,30 +8,50 @@ import java.util.List;
  * @author Mathieu SAUVAGE
  */
 public class Observable<T> {
-	protected List<Observer<T>> views = new ArrayList();
-	protected T model;
+    protected List<Observer<T>> views = new ArrayList();
 
-	public Observable(T model) {
-		this.model = model;
-	}
+    //<editor-fold desc="Observers management">
+    public void addObserver(Observer v) {
+        this.views.add(v);
+    }
 
-	//<editor-fold desc="Observers management">
-	public void addObserver(Observer v) {
-		this.views.add(v);
-	}
+    public void removeObserver(Observer v) {
+        this.views.remove(v);
+    }
+    //</editor-fold>
 
-	public void removeObserver(Observer v) {
-		this.views.remove(v);
-	}
+    public static class Complex<T> extends Observable<T> {
+        public static enum EVENT {GRAPHICAL, MODEL}
 
-	public void updateObservers() {
-		Iterator var2 = this.views.iterator();
+        protected T model;
 
-		while(var2.hasNext()) {
-			Observer v = (Observer)var2.next();
-			v.update(model);
-		}
+        public Complex(T model) {
+            this.model = model;
 
-	}
-	//</editor-fold>
+        }
+
+        public void updateObservers(EVENT event) {
+            Iterator var2 = this.views.iterator();
+
+            while (var2.hasNext()) {
+                Observer v = (Observer) var2.next();
+                v.update(event, model);
+            }
+
+        }
+    }
+
+    public static class Live<T> extends Observable<T> {
+
+        public void updateObservers(T model) {
+            Iterator var2 = this.views.iterator();
+
+            while (var2.hasNext()) {
+                Observer v = (Observer) var2.next();
+                v.update(null, model);
+            }
+
+        }
+    }
+    //</editor-fold>
 }
